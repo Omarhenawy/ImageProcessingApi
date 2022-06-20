@@ -18,4 +18,35 @@ To execute the application use the following command in terminal:
 npm run start
 ```
 
+the app will then be available on port 3000 by default, but that can be changed by editing the port constant value in the app.ts file.
 
+### Scripts ###
+
+The following actions can be executed through npm scripts:
+
+#### Transpiling typescript to javascript ####
+
+```
+npm run build
+```
+
+
+#### Testing ####
+
+A jasmine testing suite can be used to validate the endpoints and the imageresize functionality.
+
+```
+npm run test
+```
+
+
+
+## using ## 
+the end point '/images'
+there are 3 params 
+1-filename => string
+2-width =>  int 
+3-height => int 
+
+this is a sample of a working url 
+http://localhost:3000/api/images?filename=fjord&height=200&width=200

@@ -9,7 +9,7 @@ images.get('/', async (req: express.Request, res: express.Response) => {
     const filename: string = req.query.filename as string;
     const width: number = parseInt(req.query.width as string);
     const height: number = parseInt(req.query.height as string);
-    const outputPath: string = newPath(filename);
+    const outputPath: string = newPath(filename, height, width);
     const resizedImage = await resizeImage(height, width, filename);
     await fsPromises.writeFile(outputPath, resizedImage);
 
