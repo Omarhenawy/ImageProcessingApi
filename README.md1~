@@ -1,1 +1,21 @@
-# ImageProcessingApi
+# Image processing API - advanced web nanodegree #
+
+
+---
+## Getting Started ##
+
+### Installing dependencies ###
+
+```
+npm install
+```
+
+### Running the server ###
+
+To execute the application use the following command in terminal:
+
+```
+npm run start
+```
+
+
