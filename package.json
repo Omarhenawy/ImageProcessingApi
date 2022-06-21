@@ -34,17 +34,15 @@
     "@typescript-eslint/parser": "^5.28.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "jasmine-spec-reporter": "^7.0.0",
     "nodemon": "^2.0.16",
     "prettier": "^2.3.0",
     "ts-node": "^10.8.1",
     "typescript": "^4.7.3"
   },
   "dependencies": {
-    "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "jasmine": "^4.2.0",
-    "morgan": "^1.10.0",
+    "jasmine-spec-reporter": "^7.0.0",
     "path": "^0.12.7",
     "sharp": "^0.30.6",
     "supertest": "^6.2.3"
