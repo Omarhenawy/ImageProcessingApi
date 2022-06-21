@@ -5,7 +5,7 @@ import fs from 'fs';
 import path from 'path';
 const images = express.Router();
 
-images.get('/', async (req: express.Request, res: express.Response) => {
+images.get('/', async (req: express.Request, res: express.Response): Promise<any> => {
   try {
     const filename: string = req.query.filename as string;
     const width: number = parseInt(req.query.width as string);
@@ -15,17 +15,22 @@ images.get('/', async (req: express.Request, res: express.Response) => {
     const IMAGES: string[] = ['fjord', 'encenadaport', 'palmtunnel', 'santamonica', 'icelandwaterfall']
 
     
-    console.log(width);
-    if(Number.isNaN(width) || width < 0)
+    console.log(req.query.width);
+    if(req.query.width?.length == 0||req.query.height?.length == 0||req.query.filename?.length == 0)
     {
-        return res.send("width value is not existent or it's negative")
+        return res.status(200).json({ message: 'please fill all the values' });
     }
-    if(Number.isNaN(height)  || height < 0)
+    if(Number.isNaN(width) || width < 0 || width == 0)
     {
-        return res.send("height value is not existent or it's negative")
+        return res.status(200).json({ message: 'width value is either 0 or negative value or not number' });
+    }
+    if(Number.isNaN(height)  || height < 0 || height == 0)
+    {
+        return res.status(200).json({ message: 'height value is either 0 or negative value or not number' });
     }
     if(!IMAGES.includes(filename)){
-        return res.send("image doesn't exist")
+        return    res.status(200).json({ message: 'image doesnt exist ' });
+
     }
 
     if(!fs.existsSync(outputPath))
@@ -34,9 +39,9 @@ images.get('/', async (req: express.Request, res: express.Response) => {
     await fsPromises.writeFile(outputPath, resizedImage);
     }
 
-   return res.sendFile(path.resolve(outputPath));
+   return res.status(200).sendFile(path.resolve(outputPath));
   }  catch (error : unknown) {
-    throw new Error(`Error`)
+    throw new Error(error as string)
   }
 });
 

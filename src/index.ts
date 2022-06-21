@@ -1,8 +1,8 @@
-import express from 'express';
+import express, { Application } from 'express';
 import routes from './routes';
 
-const app = express();
-const port = 3000;
+const app : Application = express();
+const port : number = 3000;
 
 app.use('/api', routes);
 
